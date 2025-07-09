@@ -1,16 +1,18 @@
 # Real Estate Data Processing Pipeline
 
 ## Project Description
-This project is a Python-based data processing pipeline for real estate market analysis. It ingests, cleans, and explores real estate data, providing insights such as property type distributions, average prices, and more. The pipeline is built using object-oriented programming principles for modularity and maintainability.
+This project is a Python-based data processing pipeline for real estate market analysis. It ingests, cleans, transforms, and explores real estate data, providing insights such as property type distributions, average prices, and more. The pipeline is built using object-oriented programming principles for modularity and maintainability.
 
 The application demonstrates:
 - How to encapsulate data operations in a class (`RealEstateDataset`)
 - Data ingestion, cleaning (handling missing/invalid values), and basic exploratory analysis
-- Use of pandas and numpy for efficient data manipulation
+- Feature engineering and advanced visualization
+- Use of pandas, numpy, matplotlib, and seaborn for efficient data manipulation and visualization
 
 **Why these technologies?**
 - **Python** is widely used for data science and scripting.
 - **pandas** and **numpy** are industry standards for data analysis and numerical operations.
+- **matplotlib** and **seaborn** are popular for data visualization.
 - **Jupyter Notebook** allows for interactive, step-by-step data exploration and visualization.
 
 **Challenges faced:**
@@ -19,46 +21,43 @@ The application demonstrates:
 
 ---
 
-## How to Install and Run the Project
+## Directory Structure
 
-1. **Clone the repository** and ensure you have the required dataset (CSV file) in the `data/` directory.
-2. **Install dependencies:**
+```
+Real_Estate_Data_Processing_Pipeline/
+│
+├── data_ingestion.ipynb         # Notebook for data loading, cleaning, and basic exploration
+├── data_transformation.ipynb    # Notebook for feature engineering and visualization
+├── requirements.txt             # Project dependencies
+├── README.md                    # Project documentation
+└── data/
+    ├── housing_data.csv         # Raw real estate dataset
+    └── cleaned_housing_data.csv # Cleaned dataset after processing
+```
+
+---
+
+## How to Run the Project
+
+1. **Install requirements:**
    ```bash
-   pip install pandas numpy
+   pip install -r requirements.txt
    ```
-3. **Open `data_pipeline.ipynb` in Jupyter Notebook.**
-4. **Run the notebook cells in order:**
-   - The first cell defines the `RealEstateDataset` class. Run this cell first.
-   - In a new cell, create an instance and use the class methods as shown below:
-     ```python
-     file_path = 'data/housing_data.csv'
-     r1 = RealEstateDataset()
-     r1.load_data(file_path)
-     r1.clean_data()
-     r1.describe_data()
-     # Save cleaned data
-     r1.get_data().to_csv('data/cleaned_housing_data.csv', index=False)
-     ```
+2. **Run the notebooks to see the results (in order):**
+   - First, open and execute `data_ingestion.ipynb` in Jupyter Notebook to load, clean, and save the data.
+   - Then, open and execute `data_transformation.ipynb` in Jupyter Notebook to perform feature engineering and visualization.
 
-**If you want to use the class in a separate Python script (.py file):**
-- Move the class definition to a file named `data_pipeline.py`.
-- Then, in your script, you can use:
-  ```python
-  from data_pipeline import RealEstateDataset
-  # ...rest of the code as above
-  ```
+---
 
-### Features
-- **Data Ingestion:** Reads a CSV file and previews the first few rows.
-- **Data Cleaning:**
-  - Fills missing values in numerical columns with the mean
-  - Fills missing values in categorical columns with 'Unknown'
-  - Handles negative values in numerical columns by replacing them with the median
-- **Exploratory Analysis:**
-  - Prints mean, median, and mode for numerical columns
-  - Shows distribution of property types
-  - Calculates average prices by property type
-  - Calculates average property size by location 
+## Features
+
+- **Data Ingestion:** Robust loading and preview of real estate data.
+- **Data Cleaning:** Handles missing values, negative values, and categorical/date cleaning.
+- **Exploratory Analysis:** Summary statistics, property type distribution, price/size by group.
+- **Feature Engineering:** Adds price per square foot and property age.
+- **Visualization:** Price distribution, top locations, and price trends over time.
+
+---
 
 ## About Me
 
