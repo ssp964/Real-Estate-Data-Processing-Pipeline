@@ -16,7 +16,6 @@ The application demonstrates:
 - **Jupyter Notebook** allows for interactive, step-by-step data exploration and visualization.
 
 **Challenges faced:**
-- Ensuring robust handling of missing and invalid data
 - Designing a flexible class structure for future extensibility
 
 ---
